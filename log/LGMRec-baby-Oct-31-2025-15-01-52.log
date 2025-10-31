@@ -1,0 +1,178 @@
+Fri 31 Oct 2025 15:01:52 INFO ██Server: 	LAPTOP-2K5E710T
+Fri 31 Oct 2025 15:01:52 INFO ██Dir: 	/home/baobu/khoa_luan/LGMRec-main
+
+Fri 31 Oct 2025 15:01:52 INFO 
+use_gpu=True
+seed=[999]
+data_path=./data/
+inter_splitting_label=x_label
+filter_out_cod_start_users=True
+is_multimodal_model=True
+checkpoint_dir=saved
+save_recommended_topk=True
+recommend_topk=recommend_topk/
+embedding_size=64
+weight_decay=0.0
+req_training=True
+epochs=1000
+stopping_step=20
+train_batch_size=2048
+learner=adam
+learning_rate=0.001
+learning_rate_scheduler=[1.0, 50]
+eval_step=1
+training_neg_sample_num=1
+use_neg_sampling=True
+use_full_sampling=False
+NEG_PREFIX=neg__
+USER_ID_FIELD=userID
+ITEM_ID_FIELD=itemID
+TIME_FIELD=timestamp
+field_separator=	
+metrics=['Recall', 'NDCG', 'Precision', 'MAP']
+topk=[5, 10, 20, 50]
+valid_metric=Recall@20
+eval_batch_size=4096
+use_raw_features=False
+max_txt_len=32
+max_img_size=256
+vocab_size=30522
+type_vocab_size=2
+hidden_size=4
+pad_token_id=0
+max_position_embeddings=512
+layer_norm_eps=1e-12
+hidden_dropout_prob=0.1
+end2end=False
+hyper_parameters=['seed']
+inter_file_name=baby.inter
+vision_feature_file=image_feat.npy
+text_feature_file=text_feat.npy
+n_ui_layers=2
+n_mm_layers=2
+n_hyper_layer=1
+hyper_num=4
+keep_rate=0.5
+alpha=0.3
+cl_weight=0.0001
+reg_weight=1e-06
+feat_embed_dim=64
+cf_model=lightgcn
+user_graph_dict_file=user_graph_dict.npy
+gpu_id=0
+model=LGMRec
+dataset=baby
+valid_metric_bigger=True
+device=cuda:0
+
+
+Fri 31 Oct 2025 15:01:52 INFO baby
+The number of users: 19445
+Average actions of users: 8.269066598097197
+The number of items: 7050
+Average actions of items: 22.807375886524824
+The number of inters: 160792
+The sparsity of the dataset: 99.8827082752043%
+Fri 31 Oct 2025 15:01:52 INFO 
+====Training====
+baby
+The number of users: 19445
+Average actions of users: 6.096734379017742
+The number of items: 7047
+Average actions of items: 16.82290336313325
+The number of inters: 118551
+The sparsity of the dataset: 99.9134846831415%
+Fri 31 Oct 2025 15:01:52 INFO 
+====Validation====
+baby
+The number of users: 19445
+Average actions of users: 1.0572897917202366
+The number of items: 5483
+Average actions of items: 3.749589640707642
+The number of inters: 20559
+The sparsity of the dataset: 99.98071694707788%
+Fri 31 Oct 2025 15:01:52 INFO 
+====Testing====
+baby
+The number of users: 19445
+Average actions of users: 1.1150424273592183
+The number of items: 5549
+Average actions of items: 3.907370697422959
+The number of inters: 21682
+The sparsity of the dataset: 99.97990552482683%
+Fri 31 Oct 2025 15:02:05 INFO 
+
+=================================
+
+
+Fri 31 Oct 2025 15:02:05 INFO =========1/1: Parameters:['seed']=(999,)=======
+Fri 31 Oct 2025 15:02:36 INFO LGMRec(
+  (hgnnLayer): HGNNLayer()
+  (user_embedding): Embedding(19445, 64)
+  (item_id_embedding): Embedding(7050, 64)
+  (drop): Dropout(p=0.5, inplace=False)
+  (image_embedding): Embedding(7050, 4096)
+  (text_embedding): Embedding(7050, 384)
+)
+Trainable parameters: 33584320
+Fri 31 Oct 2025 15:03:00 INFO epoch 0 training [time: 23.06s, train loss: 243.4635]
+Fri 31 Oct 2025 15:03:10 INFO epoch 0 evaluating [time: 6.23s, valid_score: 0.073300]
+Fri 31 Oct 2025 15:03:10 INFO valid result: 
+recall@5: 0.0298    recall@10: 0.0475    recall@20: 0.0733    recall@50: 0.1255    ndcg@5: 0.0195    ndcg@10: 0.0252    ndcg@20: 0.0318    ndcg@50: 0.0422    precision@5: 0.0062    precision@10: 0.0050    precision@20: 0.0038    precision@50: 0.0027    map@5: 0.0159    map@10: 0.0182    map@20: 0.0200    map@50: 0.0216    
+Fri 31 Oct 2025 15:03:10 INFO test result: 
+recall@5: 0.0303    recall@10: 0.0485    recall@20: 0.0739    recall@50: 0.1290    ndcg@5: 0.0201    ndcg@10: 0.0260    ndcg@20: 0.0325    ndcg@50: 0.0438    precision@5: 0.0067    precision@10: 0.0054    precision@20: 0.0041    precision@50: 0.0029    map@5: 0.0161    map@10: 0.0185    map@20: 0.0203    map@50: 0.0220    
+Fri 31 Oct 2025 15:03:10 INFO ██ LGMRec--Best validation results updated!!!
+Fri 31 Oct 2025 15:03:26 INFO epoch 1 training [time: 16.21s, train loss: 238.1073]
+Fri 31 Oct 2025 15:03:33 INFO epoch 1 evaluating [time: 3.27s, valid_score: 0.078800]
+Fri 31 Oct 2025 15:03:33 INFO valid result: 
+recall@5: 0.0326    recall@10: 0.0510    recall@20: 0.0788    recall@50: 0.1359    ndcg@5: 0.0220    ndcg@10: 0.0279    ndcg@20: 0.0350    ndcg@50: 0.0464    precision@5: 0.0068    precision@10: 0.0053    precision@20: 0.0042    precision@50: 0.0029    map@5: 0.0182    map@10: 0.0206    map@20: 0.0225    map@50: 0.0243    
+Fri 31 Oct 2025 15:03:33 INFO test result: 
+recall@5: 0.0330    recall@10: 0.0520    recall@20: 0.0818    recall@50: 0.1412    ndcg@5: 0.0219    ndcg@10: 0.0281    ndcg@20: 0.0358    ndcg@50: 0.0477    precision@5: 0.0073    precision@10: 0.0057    precision@20: 0.0045    precision@50: 0.0031    map@5: 0.0177    map@10: 0.0201    map@20: 0.0222    map@50: 0.0240    
+Fri 31 Oct 2025 15:03:33 INFO ██ LGMRec--Best validation results updated!!!
+Fri 31 Oct 2025 15:03:48 INFO epoch 2 training [time: 15.47s, train loss: 236.6487]
+Fri 31 Oct 2025 15:03:57 INFO epoch 2 evaluating [time: 3.28s, valid_score: 0.083200]
+Fri 31 Oct 2025 15:03:57 INFO valid result: 
+recall@5: 0.0339    recall@10: 0.0531    recall@20: 0.0832    recall@50: 0.1430    ndcg@5: 0.0230    ndcg@10: 0.0292    ndcg@20: 0.0368    ndcg@50: 0.0488    precision@5: 0.0071    precision@10: 0.0056    precision@20: 0.0044    precision@50: 0.0030    map@5: 0.0191    map@10: 0.0216    map@20: 0.0237    map@50: 0.0256    
+Fri 31 Oct 2025 15:03:57 INFO test result: 
+recall@5: 0.0342    recall@10: 0.0546    recall@20: 0.0851    recall@50: 0.1470    ndcg@5: 0.0228    ndcg@10: 0.0295    ndcg@20: 0.0373    ndcg@50: 0.0498    precision@5: 0.0075    precision@10: 0.0060    precision@20: 0.0047    precision@50: 0.0033    map@5: 0.0184    map@10: 0.0212    map@20: 0.0232    map@50: 0.0252    
+Fri 31 Oct 2025 15:03:57 INFO ██ LGMRec--Best validation results updated!!!
+Fri 31 Oct 2025 15:04:14 INFO epoch 3 training [time: 16.37s, train loss: 235.8361]
+Fri 31 Oct 2025 15:04:21 INFO epoch 3 evaluating [time: 3.49s, valid_score: 0.081200]
+Fri 31 Oct 2025 15:04:21 INFO valid result: 
+recall@5: 0.0339    recall@10: 0.0534    recall@20: 0.0812    recall@50: 0.1387    ndcg@5: 0.0229    ndcg@10: 0.0293    ndcg@20: 0.0363    ndcg@50: 0.0479    precision@5: 0.0071    precision@10: 0.0056    precision@20: 0.0043    precision@50: 0.0029    map@5: 0.0190    map@10: 0.0216    map@20: 0.0235    map@50: 0.0253    
+Fri 31 Oct 2025 15:04:21 INFO test result: 
+recall@5: 0.0353    recall@10: 0.0548    recall@20: 0.0843    recall@50: 0.1416    ndcg@5: 0.0233    ndcg@10: 0.0297    ndcg@20: 0.0373    ndcg@50: 0.0489    precision@5: 0.0078    precision@10: 0.0061    precision@20: 0.0047    precision@50: 0.0032    map@5: 0.0187    map@10: 0.0212    map@20: 0.0233    map@50: 0.0251    
+Fri 31 Oct 2025 15:04:36 INFO epoch 4 training [time: 15.64s, train loss: 235.0448]
+Fri 31 Oct 2025 15:04:43 INFO epoch 4 evaluating [time: 3.63s, valid_score: 0.084400]
+Fri 31 Oct 2025 15:04:43 INFO valid result: 
+recall@5: 0.0347    recall@10: 0.0546    recall@20: 0.0844    recall@50: 0.1427    ndcg@5: 0.0234    ndcg@10: 0.0298    ndcg@20: 0.0374    ndcg@50: 0.0491    precision@5: 0.0073    precision@10: 0.0057    precision@20: 0.0045    precision@50: 0.0030    map@5: 0.0193    map@10: 0.0220    map@20: 0.0240    map@50: 0.0258    
+Fri 31 Oct 2025 15:04:43 INFO test result: 
+recall@5: 0.0356    recall@10: 0.0569    recall@20: 0.0865    recall@50: 0.1461    ndcg@5: 0.0241    ndcg@10: 0.0310    ndcg@20: 0.0386    ndcg@50: 0.0507    precision@5: 0.0079    precision@10: 0.0063    precision@20: 0.0048    precision@50: 0.0033    map@5: 0.0196    map@10: 0.0224    map@20: 0.0244    map@50: 0.0263    
+Fri 31 Oct 2025 15:04:43 INFO ██ LGMRec--Best validation results updated!!!
+Fri 31 Oct 2025 15:04:59 INFO epoch 5 training [time: 15.91s, train loss: 234.5294]
+Fri 31 Oct 2025 15:05:11 INFO epoch 5 evaluating [time: 8.43s, valid_score: 0.086100]
+Fri 31 Oct 2025 15:05:11 INFO valid result: 
+recall@5: 0.0355    recall@10: 0.0554    recall@20: 0.0861    recall@50: 0.1449    ndcg@5: 0.0240    ndcg@10: 0.0304    ndcg@20: 0.0382    ndcg@50: 0.0500    precision@5: 0.0074    precision@10: 0.0058    precision@20: 0.0045    precision@50: 0.0031    map@5: 0.0199    map@10: 0.0225    map@20: 0.0246    map@50: 0.0264    
+Fri 31 Oct 2025 15:05:11 INFO test result: 
+recall@5: 0.0374    recall@10: 0.0570    recall@20: 0.0882    recall@50: 0.1480    ndcg@5: 0.0250    ndcg@10: 0.0314    ndcg@20: 0.0395    ndcg@50: 0.0516    precision@5: 0.0082    precision@10: 0.0063    precision@20: 0.0049    precision@50: 0.0033    map@5: 0.0203    map@10: 0.0229    map@20: 0.0250    map@50: 0.0269    
+Fri 31 Oct 2025 15:05:11 INFO ██ LGMRec--Best validation results updated!!!
+Fri 31 Oct 2025 15:05:27 INFO epoch 6 training [time: 16.10s, train loss: 233.9063]
+Fri 31 Oct 2025 15:05:34 INFO epoch 6 evaluating [time: 3.20s, valid_score: 0.086000]
+Fri 31 Oct 2025 15:05:34 INFO valid result: 
+recall@5: 0.0356    recall@10: 0.0558    recall@20: 0.0860    recall@50: 0.1434    ndcg@5: 0.0239    ndcg@10: 0.0304    ndcg@20: 0.0381    ndcg@50: 0.0496    precision@5: 0.0075    precision@10: 0.0059    precision@20: 0.0045    precision@50: 0.0030    map@5: 0.0197    map@10: 0.0223    map@20: 0.0244    map@50: 0.0262    
+Fri 31 Oct 2025 15:05:34 INFO test result: 
+recall@5: 0.0370    recall@10: 0.0579    recall@20: 0.0868    recall@50: 0.1482    ndcg@5: 0.0252    ndcg@10: 0.0320    ndcg@20: 0.0395    ndcg@50: 0.0520    precision@5: 0.0082    precision@10: 0.0064    precision@20: 0.0048    precision@50: 0.0033    map@5: 0.0207    map@10: 0.0234    map@20: 0.0254    map@50: 0.0274    
+Fri 31 Oct 2025 15:05:50 INFO epoch 7 training [time: 15.57s, train loss: 233.6603]
+Fri 31 Oct 2025 15:05:58 INFO epoch 7 evaluating [time: 3.41s, valid_score: 0.090000]
+Fri 31 Oct 2025 15:05:58 INFO valid result: 
+recall@5: 0.0356    recall@10: 0.0570    recall@20: 0.0900    recall@50: 0.1499    ndcg@5: 0.0240    ndcg@10: 0.0310    ndcg@20: 0.0394    ndcg@50: 0.0514    precision@5: 0.0075    precision@10: 0.0060    precision@20: 0.0048    precision@50: 0.0032    map@5: 0.0199    map@10: 0.0228    map@20: 0.0250    map@50: 0.0269    
+Fri 31 Oct 2025 15:05:58 INFO test result: 
+recall@5: 0.0388    recall@10: 0.0595    recall@20: 0.0915    recall@50: 0.1541    ndcg@5: 0.0262    ndcg@10: 0.0330    ndcg@20: 0.0412    ndcg@50: 0.0539    precision@5: 0.0085    precision@10: 0.0065    precision@20: 0.0051    precision@50: 0.0034    map@5: 0.0214    map@10: 0.0241    map@20: 0.0263    map@50: 0.0283    
+Fri 31 Oct 2025 15:05:58 INFO ██ LGMRec--Best validation results updated!!!
+Fri 31 Oct 2025 15:06:13 INFO epoch 8 training [time: 15.50s, train loss: 233.4463]
+Fri 31 Oct 2025 15:06:19 INFO epoch 8 evaluating [time: 3.01s, valid_score: 0.087100]
+Fri 31 Oct 2025 15:06:19 INFO valid result: 
+recall@5: 0.0364    recall@10: 0.0575    recall@20: 0.0871    recall@50: 0.1465    ndcg@5: 0.0240    ndcg@10: 0.0308    ndcg@20: 0.0384    ndcg@50: 0.0503    precision@5: 0.0076    precision@10: 0.0060    precision@20: 0.0046    precision@50: 0.0031    map@5: 0.0197    map@10: 0.0224    map@20: 0.0244    map@50: 0.0263    
+Fri 31 Oct 2025 15:06:19 INFO test result: 
+recall@5: 0.0383    recall@10: 0.0586    recall@20: 0.0902    recall@50: 0.1512    ndcg@5: 0.0262    ndcg@10: 0.0328    ndcg@20: 0.0410    ndcg@50: 0.0533    precision@5: 0.0083    precision@10: 0.0064    precision@20: 0.0050    precision@50: 0.0034    map@5: 0.0216    map@10: 0.0242    map@20: 0.0264    map@50: 0.0283    
+Fri 31 Oct 2025 15:06:35 INFO epoch 9 training [time: 15.45s, train loss: 232.9772]

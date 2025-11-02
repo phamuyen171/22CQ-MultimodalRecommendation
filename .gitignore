@@ -9,9 +9,12 @@ __pycache__/
 # *.npy
 
 # # Ignore data folders
-# data/
+data/datas
+data/data_1st
 # log/
 
 # Ignore OS files
 .DS_Store
 Thumbs.db
+
+*.out
